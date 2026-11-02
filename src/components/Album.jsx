@@ -5,9 +5,9 @@ import { gallery } from '../data.js'
 
 export default function Album() {
   const [index, setIndex] = useState(null)
+  const [carouselIndex, setCarouselIndex] = useState(0)
   const [savedOverflow, setSavedOverflow] = useState('')
   const isOpen = index !== null
-  const visible = gallery.slice(0, 4)
 
   const close = useCallback(() => setIndex(null), [])
   const move = useCallback(
@@ -19,6 +19,20 @@ export default function Album() {
     },
     [],
   )
+
+  const moveCarousel = useCallback((step) => {
+    setCarouselIndex((current) => (current + step + gallery.length) % gallery.length)
+  }, [])
+
+  useEffect(() => {
+    if (isOpen || gallery.length < 2) return undefined
+
+    const timer = window.setInterval(() => {
+      setCarouselIndex((current) => (current + 1) % gallery.length)
+    }, 1000)
+
+    return () => window.clearInterval(timer)
+  }, [isOpen])
 
   useEffect(() => {
     if (!isOpen) return undefined
@@ -43,24 +57,58 @@ export default function Album() {
       <div className="album-inner">
         <h2 className="album-title">Album ảnh</h2>
 
-        <div className="album-grid">
-          {visible.map((src, i) => {
-            const isLast = i === visible.length - 1 && gallery.length > 4
-            return (
+        <div className="album-carousel">
+          <div className="album-stage">
+            {[-3, -2, -1, 0, 1, 2, 3].map((offset) => {
+              const imageIndex = (carouselIndex + offset + gallery.length) % gallery.length
+              const position =
+                offset === 0
+                  ? 'center'
+                  : `${offset < 0 ? 'left' : 'right'}-${Math.abs(offset)}`
+
+              return (
+                <button
+                  type="button"
+                  className={`album-card album-card-${position}`}
+                  key={imageIndex}
+                  onClick={() => setIndex(imageIndex)}
+                  aria-label={`Xem ảnh ${imageIndex + 1}`}
+                  aria-current={offset === 0 ? 'true' : undefined}
+                >
+                  <img src={gallery[imageIndex]} alt="" className="album-img" />
+                </button>
+              )
+            })}
+            <button
+              type="button"
+              className="album-nav album-nav-prev"
+              onClick={() => moveCarousel(-1)}
+              aria-label="Ảnh trước"
+            >
+              <ChevronIcon direction="left" className="album-nav-icon" />
+            </button>
+            <button
+              type="button"
+              className="album-nav album-nav-next"
+              onClick={() => moveCarousel(1)}
+              aria-label="Ảnh tiếp theo"
+            >
+              <ChevronIcon className="album-nav-icon" />
+            </button>
+          </div>
+
+          <div className="album-dots" aria-label="Chọn ảnh trong album">
+            {gallery.map((src, i) => (
               <button
                 type="button"
-                className="album-thumb"
                 key={src}
-                onClick={() => setIndex(i)}
-                aria-label={`Xem ảnh ${i + 1}`}
-              >
-                <img src={src} alt="" className="album-img" loading="lazy" />
-                {isLast ? (
-                  <span className="album-more">+{gallery.length - 4}</span>
-                ) : null}
-              </button>
-            )
-          })}
+                className={`album-dot ${i === carouselIndex ? 'is-active' : ''}`}
+                onClick={() => setCarouselIndex(i)}
+                aria-label={`Chuyển đến ảnh ${i + 1}`}
+                aria-current={i === carouselIndex ? 'true' : undefined}
+              />
+            ))}
+          </div>
         </div>
       </div>
 

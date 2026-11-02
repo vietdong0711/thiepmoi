@@ -87,6 +87,14 @@ export function NoteIcon({ className = '' }) {
   )
 }
 
+export function MessageIcon({ className = '' }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" className={className} aria-hidden="true">
+      <path d="M20 2H4a2 2 0 0 0-2 2v18l4-4h14a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2zm-2 11H6v-2h12v2zm0-4H6V7h12v2z" />
+    </svg>
+  )
+}
+
 export function PinIcon({ className = '' }) {
   return (
     <svg viewBox="0 0 24 24" fill="currentColor" className={className} aria-hidden="true">

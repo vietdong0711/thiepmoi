@@ -1,5 +1,5 @@
 import { Flower, Leaf } from './Decor.jsx'
-import { ceremony, couple, families } from '../data.js'
+import { ceremony, couple, families, before_ceremony } from '../data.js'
 
 export default function WeddingInfo() {
   return (
@@ -15,7 +15,7 @@ export default function WeddingInfo() {
           className="paper-texture"
         />
         <div className="paper-content">
-          <h2 className="paper-title">Thông tin lễ cưới</h2>
+          <h2 className="paper-title">LỄ VU QUY</h2>
 
           <div className="parents">
             <div className="parents-col">
@@ -33,11 +33,20 @@ export default function WeddingInfo() {
             </div>
           </div>
 
-          <p className="info-announce">
-            TRÂN TRỌNG BÁO TIN
-            <br />
-            LỄ THÀNH HÔN CỦA CON CHÚNG TÔI
-          </p>
+          <div className="ceremony">
+            <p className="ceremony-note">{before_ceremony.note}</p>
+            <p className="ceremony-invite">{before_ceremony.invite}</p>
+            <p className="ceremony-time">{before_ceremony.time}</p>
+            <div className="date-row">
+              <span className="date-side">{before_ceremony.weekday}</span>
+              <span className="date-bar">|</span>
+              <span className="date-day">{before_ceremony.day}</span>
+              <span className="date-bar">|</span>
+              <span className="date-side">{before_ceremony.month}</span>
+            </div>
+            <p className="ceremony-year">{before_ceremony.year}</p>
+            <p className="ceremony-lunar">{before_ceremony.lunarDate}</p>
+          </div>
 
           <div className="info-couple">
             <h3 className="info-groom">{couple.groomFull}</h3>

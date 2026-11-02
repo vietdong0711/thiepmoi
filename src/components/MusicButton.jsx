@@ -1,8 +1,22 @@
-import { NoteIcon } from './Decor.jsx'
+import { MessageIcon, NoteIcon } from './Decor.jsx'
 
-export default function MusicButton({ playing, onToggle }) {
+export default function MusicButton({ playing, onToggle, onMessage }) {
   return (
     <div className="music-dock">
+      <button
+        type="button"
+        className="music-btn message-btn"
+        onClick={onMessage}
+        aria-label="Viết lời chúc"
+      >
+        <span className="music-btn-fill" aria-hidden="true">
+          <span className="music-btn-ring" />
+          <span className="music-btn-gloss" />
+        </span>
+        <span className="music-btn-icon">
+          <MessageIcon className="music-note" />
+        </span>
+      </button>
       <button
         type="button"
         className={`music-btn ${playing ? 'is-playing' : ''}`}

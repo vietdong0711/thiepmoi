@@ -39,7 +39,7 @@ export default function Envelope({ onOpen }) {
               <span className="env-divider-line env-divider-line-r" />
             </div>
 
-            <p className="env-date">3 tháng 1, 2026</p>
+            <p className="env-date">14 tháng 11, 2026</p>
             <p className="env-invite">Thân Mời</p>
 
             <button type="button" className="env-open-btn" onClick={onOpen}>

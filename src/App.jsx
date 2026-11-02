@@ -45,6 +45,16 @@ export default function App() {
     }
   }, [])
 
+  const goToGuestbook = useCallback(() => {
+    const section = document.getElementById('guestbook')
+    if (!section) return
+
+    section.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    window.setTimeout(() => {
+      section.querySelector('textarea')?.focus({ preventScroll: true })
+    }, 650)
+  }, [])
+
   return (
     <>
       <audio
@@ -60,7 +70,13 @@ export default function App() {
 
       {opened && <Invitation />}
 
-      {opened && <MusicButton playing={playing} onToggle={toggleMusic} />}
+      {opened && (
+        <MusicButton
+          playing={playing}
+          onToggle={toggleMusic}
+          onMessage={goToGuestbook}
+        />
+      )}
     </>
   )
 }

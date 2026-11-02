@@ -35,13 +35,24 @@ export const families = {
 }
 
 export const ceremony = {
-  time: '06:00',
+  time: '05:00',
   weekday: 'THỨ BẢY',
   day: '14',
   month: 'THÁNG 11',
   year: '2026',
   note: 'LỄ VU QUY ĐƯỢC CỬ HÀNH TẠI TƯ GIA',
   invite: 'VÀO LÚC',
+}
+
+export const before_ceremony = {
+  time: '16:30',
+  weekday: 'THỨ SÁU',
+  day: '13',
+  month: 'THÁNG 11',
+  year: '2026',
+  note: 'TIỆC CƯỚI SẼ DIỄN RA TẠI TƯ GIA',
+  invite: 'VÀO LÚC',
+  lunarDate: '(Tức ngày 05 tháng 10 năm Bính Ngọ)',
 }
 
 export const party = {
@@ -89,6 +100,7 @@ export const gallery = [
   '/images/themes/minimalism-brown/gallery_4.jpg',
   '/images/themes/minimalism-brown/gallery_5.jpg',
   '/images/themes/minimalism-brown/gallery_6.jpg',
+  '/images/themes/minimalism-brown/gallery_18.jpg',
   '/images/themes/minimalism-brown/gallery_7.jpg',
   '/images/themes/minimalism-brown/gallery_8.jpg',
   '/images/themes/minimalism-brown/gallery_9.jpg',
@@ -100,69 +112,6 @@ export const gallery = [
   '/images/themes/minimalism-brown/gallery_15.jpg',
   '/images/themes/minimalism-brown/gallery_16.jpg',
   '/images/themes/minimalism-brown/gallery_17.jpg',
-]
-
-export const seedWishes = [
-  {
-    name: 'Mỹ Linh',
-    time: '21:20:27 14/7/2026',
-    message:
-      'Chúc hai bạn trăm năm hạnh phúc, vạn sự như ý, một đám cưới thật vui!',
-  },
-  {
-    name: 'Trọng Nhân',
-    time: '21:20:27 14/7/2026',
-    message:
-      'Chúc mừng hai bạn về chung một nhà! Chúc luôn vui vẻ và yêu thương nhau thật nhiều.',
-  },
-  {
-    name: 'Phương Vy',
-    time: '21:20:27 14/7/2026',
-    message:
-      'Chúc Đồng và Hằng mãi ngọt ngào như ngày đầu, hạnh phúc trọn đời bên nhau!',
-  },
-  {
-    name: 'Hải Đăng',
-    time: '21:20:27 14/7/2026',
-    message:
-      'Chúc mừng anh chị! Chúc hai người xây dựng tổ ấm thật hạnh phúc và bền lâu.',
-  },
-  {
-    name: 'Ngọc Diệp',
-    time: '21:20:27 14/7/2026',
-    message:
-      'Nhận thiệp mà thấy ấm áp ghê. Chúc hai bạn một hôn lễ thật trọn vẹn và đáng nhớ!',
-  },
-  {
-    name: 'Đức Thịnh',
-    time: '21:20:27 14/7/2026',
-    message:
-      'Chúc cô dâu chú rể trăm năm hạnh phúc, gia đình ấm êm, con cái đầy đủ!',
-  },
-  {
-    name: 'Lan Anh',
-    time: '21:20:27 14/7/2026',
-    message:
-      'Chúc mừng hạnh phúc hai bạn nhé! Mong hai bạn luôn nắm tay nhau đi hết cuộc đời.',
-  },
-  {
-    name: 'Quốc Bảo',
-    time: '21:20:27 14/7/2026',
-    message:
-      'Mừng đám cưới của cậu mợ! Chúc hai bạn mãi yêu thương và thấu hiểu nhau.',
-  },
-  {
-    name: 'Thu Hà',
-    time: '21:20:27 14/7/2026',
-    message:
-      'Ôi tấm thiệp đẹp quá! Chúc hai đứa hạnh phúc viên mãn, sớm có tin vui.',
-  },
-  {
-    name: 'Minh Tuấn',
-    time: '21:20:27 14/7/2026',
-    message:
-      'Chúc mừng Viết Đồng và Trần Hằng! Chúc hai bạn trăm năm hạnh phúc, đầu bạc răng long nhé!',
-  },
 ]
 
 export const gift = {

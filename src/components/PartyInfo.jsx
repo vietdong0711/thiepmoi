@@ -1,5 +1,5 @@
 import { Flower, Leaf } from './Decor.jsx'
-import { couple, party, venue } from '../data.js'
+import {couple, families, party, venue} from '../data.js'
 
 const WEEKDAYS = ['T2', 'T3', 'T4', 'T5', 'T6', 'T7', 'CN']
 const CALENDAR_YEAR = 2026
@@ -63,6 +63,21 @@ export default function PartyInfo() {
             className="paper-texture"
           />
           <div className="paper-content">
+            <div className="parents">
+              <div className="parents-col">
+                <span className="parents-label">{families.left.label}</span>
+                <span className="parents-name">{families.left.father}</span>
+                <span className="parents-name">{families.left.mother}</span>
+                <span className="parents-address">{families.left.address}</span>
+              </div>
+              <span className="parents-divider" aria-hidden="true" />
+              <div className="parents-col">
+                <span className="parents-label">{families.right.label}</span>
+                <span className="parents-name">{families.right.father}</span>
+                <span className="parents-name">{families.right.mother}</span>
+                <span className="parents-address">{families.right.address}</span>
+              </div>
+            </div>
             <h2 className="paper-title">LỄ THÀNH HÔN</h2>
 
             <div className="party-body">
