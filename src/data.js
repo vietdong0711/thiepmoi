@@ -122,5 +122,5 @@ export const gift = {
     'Sự hiện diện của quý khách là niềm vinh hạnh của gia đình chúng tôi!',
 }
 
-export const weddingDateISO = '20260103T020000Z'
-export const weddingDateLocal = '2026-01-03T09:00:00+07:00'
+export const weddingDateISO = '20261114T020000Z'
+export const weddingDateLocal = '2026-11-14T11:00:00+07:00'
